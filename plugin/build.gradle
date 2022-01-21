@@ -1,0 +1,42 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+
+sourceSets {
+    main{
+        groovy {
+            srcDir 'src/main/groovy'
+        }
+        
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+
+    //transform 在这里
+    implementation 'com.android.tools.build:gradle:4.1.1'
+
+    //ASM相关依赖
+    implementation 'org.ow2.asm:asm:7.1'
+    implementation 'org.ow2.asm:asm-commons:7.1'
+}
+
+group = 'com.kj.method.monitor.plugin'
+
+version = '1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository (url: uri('../plugin_method_monitor'))
+        }
+    }
+}
+
+
+

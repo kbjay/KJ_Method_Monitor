@@ -1,0 +1,4 @@
+include ':lib_method_monitor'
+include ':plugin'
+include ':app'
+rootProject.name = "KJ_Method_Monitor"
