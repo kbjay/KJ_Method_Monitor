@@ -10,8 +10,10 @@ class KJMethodMonitorTransform extends KJAbstractTransform {
         if (sourceDir.isDirectory()) {
             // 递归遍历所有的文件夹下所有的文件夹以及文件
             sourceDir.eachFileRecurse { File sourceFile ->
-                if (sourceFile.absolutePath.endsWith(".class") &&
-                        !sourceFile.absolutePath.endsWith("BuildConfig.class") ) {
+                if (sourceFile.absolutePath.endsWith(".class")
+                        && !sourceFile.absolutePath.endsWith("BuildConfig.class")
+                        && !sourceFile.absolutePath.endsWith('R.class')
+                        && !sourceFile.absolutePath.contains("R\$")) {
                     println("  source_class_path: " + sourceFile.absolutePath)
                     KJAsmController.handleMethod(sourceFile)
                 }

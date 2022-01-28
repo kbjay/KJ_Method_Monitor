@@ -19,7 +19,7 @@ dependencies {
     implementation localGroovy()
 
     //transform 在这里
-    implementation 'com.android.tools.build:gradle:4.1.1'
+    implementation 'com.android.tools.build:gradle:3.4.0'
 
     //ASM相关依赖
     implementation 'org.ow2.asm:asm:7.1'

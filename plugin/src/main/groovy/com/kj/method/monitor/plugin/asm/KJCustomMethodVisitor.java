@@ -17,10 +17,7 @@ public class KJCustomMethodVisitor extends AdviceAdapter {
         System.out.println("  onMethodEnter: "+getName()+" ");
         // getName
         mv.visitLdcInsn(getName());
-        mv.visitVarInsn(ASTORE, 1);
-
         // call methodEnter
-        mv.visitVarInsn(ALOAD, 1);
         mv.visitMethodInsn(INVOKESTATIC, "com/kj/monitor/lib_method_monitor/KJMethodManager", "methodEnter", "(Ljava/lang/String;)V", false);
     }
 
