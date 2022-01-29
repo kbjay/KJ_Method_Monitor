@@ -7,12 +7,11 @@ import org.objectweb.asm.commons.AdviceAdapter;
 public class KJCustomMethodVisitor extends AdviceAdapter {
 
     private String methodName;
-    private String className;
+
     private static int MAX_LENGTH = 127;
 
     protected KJCustomMethodVisitor(int api, MethodVisitor methodVisitor, int access, String name, String descriptor, String className) {
         super(api, methodVisitor, access, name, descriptor);
-        this.className = className;
         KJTraceMethod traceMethod = KJTraceMethod.create(0, access, className, name, descriptor);
         this.methodName = traceMethod.getMethodNameText();
     }
@@ -30,10 +29,17 @@ public class KJCustomMethodVisitor extends AdviceAdapter {
     @Override
     protected void onMethodExit(int opcode) {
         super.onMethodExit(opcode);
-
-        mv.visitMethodInsn(INVOKESTATIC, "com/kj/monitor/lib_method_monitor/KJMethodManager", "methodExit", "()V", false);
+        // getName
+        mv.visitLdcInsn(generatorMethodName());
+        // call methodExit
+        mv.visitMethodInsn(INVOKESTATIC, "com/kj/monitor/lib_method_monitor/KJMethodManager", "methodExit", "(Ljava/lang/String;)V", false);
     }
 
+    /**
+     * 字符串太占用内存，后续考虑换成long；同时输出一张method -> long 的映射表；（暂时不考虑线上环境） todo
+     *
+     * @return
+     */
     private String generatorMethodName() {
         String sectionName = methodName;
         int length = sectionName.length();
@@ -49,6 +55,4 @@ public class KJCustomMethodVisitor extends AdviceAdapter {
         }
         return sectionName;
     }
-
-
 }

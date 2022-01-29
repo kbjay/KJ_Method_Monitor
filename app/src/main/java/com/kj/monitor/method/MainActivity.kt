@@ -2,7 +2,7 @@ package com.kj.monitor.method
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.kj.monitor.lib_method_monitor.KJMethodManager
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +13,13 @@ class MainActivity : AppCompatActivity() {
         testM()
         Thread.sleep(1000)
 //        KJMethodManager.methodExit()
+        callMethod1()
+    }
+
+    private fun callMethod1() {
+        for (i in 0..100) {
+            Log.d("kbjay_test", "test")
+        }
     }
 
     fun testM() {
