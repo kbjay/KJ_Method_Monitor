@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
+// 引入本地插件第一步（共3步） 对应自定义插件resources下面的文件名
 apply plugin: 'com.kj.method.monitor.plugin'
 
 

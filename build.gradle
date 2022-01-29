@@ -5,6 +5,7 @@ buildscript {
         google()
         jcenter()
 
+        // 引入本地插件第二步（共3步）
         maven { url './plugin_method_monitor'}
 
     }
@@ -12,6 +13,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:3.4.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
+        // 引入本地插件第三步（共3步）
         classpath 'com.kj.method.monitor.plugin:plugin:1.0.0'
     }
 }

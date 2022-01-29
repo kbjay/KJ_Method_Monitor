@@ -26,6 +26,8 @@ dependencies {
     implementation 'org.ow2.asm:asm-commons:7.1'
 }
 
+
+// 上传到本地仓库 ../plugin_method_monitor
 group = 'com.kj.method.monitor.plugin'
 
 version = '1.0.0'
