@@ -9,6 +9,7 @@
 
 #### 使用方法
 1. 引入插件
+   
    project:
     ```groovy
     
@@ -53,4 +54,27 @@
     app:
     ```groovy
     implementation 'com.github.kbjay.KJ_Method_Monitor:lib_method_monitor:v1.0.1'
-    ```
+   ```
+   
+3. 使用
+   
+   ```java
+   public class MyApplication extends Application {
+
+       @Override
+       public void onCreate() {
+           super.onCreate();
+           initMethodHook();
+       }
+   
+       private void initMethodHook() {
+           KJMethodManager.addMethodHook(new KJSystraceHook());
+           KJMethodManager.addMethodHook(new KJMethodDurationHook(50, new KJMethodDurationHook.KJMethodDurationCallBack() {
+               @Override
+               public void onMethodOverLimit(long duration, String methodName) {
+                   Log.w("kbjay_method", methodName + ":" + duration);
+               }
+           }));
+       }
+   }
+   ```
