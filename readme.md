@@ -6,3 +6,51 @@
 会有回调，使用者可以在该回调中做自己的操作，比如log.e
 
 3. 以上两个是目前已经内嵌好的功能，这个sdk也提供了主线程所有方法（不包括三方库）进入跟退出的回调，使用者可以根据自己的需求扩展使用
+
+#### 使用方法
+1. 引入插件
+   project:
+    ```groovy
+    
+   buildscript {
+       
+        repositories {
+            //..
+    
+            maven { url 'https://jitpack.io' }
+        }
+        dependencies {
+            //...
+            classpath "com.github.kbjay.KJ_Method_Monitor:plugin:v1.0.1"
+        }
+    }
+    ```
+   
+    app:
+   
+    ```groovy
+    plugins {
+        //..
+        id 'com.kj.method.monitor.plugin'
+    }
+    
+    ```
+   
+2. 引入lib
+   
+    project:
+   
+   ```groovy
+   allprojects {
+       repositories {
+           // ..
+
+           maven { url 'https://jitpack.io' }
+        }
+   }
+   ```
+   
+    app:
+    ```groovy
+    implementation 'com.github.kbjay.KJ_Method_Monitor:lib_method_monitor:v1.0.1'
+    ```
