@@ -15,6 +15,9 @@ buildscript {
 
         // 引入本地插件第三步（共3步）
         classpath 'com.kj.method.monitor.plugin:plugin:1.0.0'
+
+
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 

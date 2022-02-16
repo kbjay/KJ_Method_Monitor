@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+maven { url "https://jitpack.io" }
+group="com.github.kbjay"
+
 android {
     compileSdkVersion 30
     buildToolsVersion "28.0.3"
