@@ -8,14 +8,22 @@
 3. 以上两个是目前已经内嵌好的功能，这个sdk也提供了主线程所有方法（不包括三方库）进入跟退出的回调，使用者可以根据自己的需求扩展使用
 
 #### 效果展示
-![Image 原生trace文件](https://github.com/kbjay/KJ_Method_Monitor/blob/44167b67b587764016f9015ffc6feb797225e998/pic/v1.png)
-数据贫瘠，距离应用侧有很深的调用栈，基本无法定位问题
+1. ![Image 原生trace文件](https://github.com/kbjay/KJ_Method_Monitor/blob/44167b67b587764016f9015ffc6feb797225e998/pic/v1.png)
+   * 原生trace文件
+   * 数据贫瘠 
+   * 距离应用侧有很深的调用栈
+   * 基本无法定位问题
 
-![Image FrameWork增强](https://github.com/kbjay/KJ_Method_Monitor/blob/44167b67b587764016f9015ffc6feb797225e998/pic/v2.png)
-FrameWork层增加了一些trace，开启增强之后信息会丰富一些，但是距离应用层仍然有很深的调用栈，很难定位问题
+2. ![Image FrameWork增强](https://github.com/kbjay/KJ_Method_Monitor/blob/44167b67b587764016f9015ffc6feb797225e998/pic/v2.png)
+   * FrameWork层增加了一些trace
+   * 信息会丰富一些，
+   * 距离应用层仍然有很深的调用栈，
+   * 很难定位问题
 
-![Image 接入该库](https://github.com/kbjay/KJ_Method_Monitor/blob/44167b67b587764016f9015ffc6feb797225e998/pic/v3.png)
-卡顿时可以直观看到应用侧主线程方法的调用栈以及耗时，直接定位到应用侧具体的方法
+3. ![Image 接入该库](https://github.com/kbjay/KJ_Method_Monitor/blob/44167b67b587764016f9015ffc6feb797225e998/pic/v3.png)
+   * 接入该库 
+   * 卡顿时可以直观看到应用侧主线程方法的调用栈以及耗时
+   * 直接定位到应用侧具体的方法
 
 #### 使用方法
 1. 引入插件
